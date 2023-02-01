@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Pelicula } from '../pelicula';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +17,10 @@ export class HomePage {
     data: {} as Pelicula
 
   }];
+  idPeliculaSelec: string;
 
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private router: Router) {
 
     this.peliculaEditando = {} as Pelicula;
     this.obtenerListaPeliculas();
@@ -49,4 +51,25 @@ export class HomePage {
       })
     })
   }
+
+  selecPelicula(peliculaSelec) {
+    console.log("Pelicula seleccionada: ");
+    
+    if (peliculaSelec == false){
+      console.log("Nueva");
+      this.router.navigate(['/detalle', "nueva"]);
+    } else{
+      console.log(peliculaSelec);
+      this.idPeliculaSelec = peliculaSelec.id;
+      this.peliculaEditando.Titulo = peliculaSelec.data.Titulo;
+      this.peliculaEditando.Director = peliculaSelec.data.Director;
+      this.peliculaEditando.FechaDeEstreno = peliculaSelec.data.FechaDeEstreno;
+      this.peliculaEditando.Genero = peliculaSelec.data.Genero;
+      this.peliculaEditando.Vista = peliculaSelec.data.Vista;
+      this.router.navigate(['/detalle', this.idPeliculaSelec]);
+    }
+    
+  }
+
+
 }

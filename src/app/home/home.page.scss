@@ -25,3 +25,30 @@
 #container a {
   text-decoration: none;
 }
+
+ion-fab-button{ 
+
+  font-size: 300%;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  --background: #2736DB;
+}
+
+ion-content{
+  --background: #1F69F2;
+}
+
+ion-toolbar{
+  --background: #2736DB;
+}
+
+ion-title,h1:nth-child(0),h1:nth-child(1){
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+}
+
+h1{
+  padding-left: 1%;
+}

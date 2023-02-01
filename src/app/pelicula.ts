@@ -4,6 +4,7 @@ export interface Pelicula {
     FechaDeEstreno : Date;
     Genero : string;
     Titulo : string;
+    Imagen : String;
     Vista : boolean;
 
 }

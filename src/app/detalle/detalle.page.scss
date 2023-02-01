@@ -1,0 +1,33 @@
+
+ion-card{
+    --background: #2736DB;
+}
+ion-title,h1{
+font-weight: bold;
+color: black;
+font-size: 30px;
+}
+  
+h1{
+padding-left: 1%;
+}
+
+ion-card-title{
+    font-weight: bold;
+}
+
+ion-input{
+    background-color: #1F69F2;
+    color: white;
+    border-radius: 5px;
+    font-weight: initial;
+}
+
+ion-toolbar,ion-title,ion-header{
+    --background: #2736DB;
+    color: white;
+}
+
+ion-button{
+--background: #1F69F2;
+}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles de la película</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <img alt="{{document.data.Titulo}}" src="{{document.data.Imagen}}" width="300" height="400"/>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>Título:<ion-input [(ngModel)]="document.data.Titulo"></ion-input></ion-card-title>
+      <ion-card-title>Director:<ion-input [(ngModel)]="document.data.Director"></ion-input></ion-card-title>
+      <ion-card-title>Género:<ion-input [(ngModel)]="document.data.Genero"></ion-input></ion-card-title>
+      <ion-card-title>Fecha de estreno:<ion-input [(ngModel)]="document.data.FechaDeEstreno"></ion-input></ion-card-title>
+      <ion-card-title>Vista: <ion-checkbox *ngIf="(document.data.Vista)" checked [(ngModel)]="document.data.Vista">Vista: Si</ion-checkbox>
+        <ion-checkbox *ngIf="(!document.data.Vista)" [(ngModel)]="document.data.Vista">Vista: No</ion-checkbox></ion-card-title>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-button (click)="clickBotonVolver()">Volver</ion-button>
+  <ion-button (click)="clickBotonInsertar()" *ngIf="(this.nueva)">Insertar</ion-button>
+  <ion-button (click)="clickBotonModificar()" *ngIf="(!this.nueva)">Modificar</ion-button>
+  <ion-button (click)="uploadImagePicker()" >Examinar</ion-button>
+  <ion-button (click)="presentAlert()" *ngIf="(!this.nueva)">Borrar</ion-button>
+</ion-content>

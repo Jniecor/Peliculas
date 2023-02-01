@@ -7,51 +7,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>Título</ion-label>
-    <ion-input [(ngModel)]="peliculaEditando.Titulo"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Director</ion-label>
-    <ion-input [(ngModel)]="peliculaEditando.Director"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Fecha de estreno</ion-label>
-    <ion-input [(ngModel)]="peliculaEditando.FechaDeEstreno"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Género</ion-label>
-    <ion-input [(ngModel)]="peliculaEditando.Genero"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-checkbox slot="start" [(ngModel)]="peliculaEditando.Vista"></ion-checkbox>
-    <ion-label>Visualizada</ion-label>
-  </ion-item>
-  
-
-  <ion-button (click)="clickBotonInsertar()">Añadir Pelicula</ion-button>
-
   <h1>Lista de Peliculas</h1>
-  <ion-list>
-    <ion-item *ngFor="let documentPelicula of arrayColeccionPeliculas">
-      <ion-grid>
-        <ion-row>
-          <h1> {{ documentPelicula.data.Titulo }}</h1>
-        </ion-row>
-        <ion-row>
-          <h2> {{ documentPelicula.data.Director }}</h2>
-        </ion-row>
-        <ion-row>
-          <h2> {{ documentPelicula.data.FechaDeEstreno }}</h2>
-        </ion-row>
-        <ion-row>
-          <h2> {{ documentPelicula.data.Genero }}</h2>
-        </ion-row>
-        <ion-row>
-            <h2 *ngIf="(documentPelicula.data.Vista)">Si</h2> <!-- No sé si funciona bien -->
-            <h2 *ngIf="(!documentPelicula.data.Vista)">No</h2> <!-- No sé si funciona bien -->
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-list>
+  <ion-grid> 
+    <ion-row>
+      <ion-col *ngFor="let documentPelicula of arrayColeccionPeliculas" (click)="selecPelicula(documentPelicula)"
+      size="12" size-md="4" size-lg="3">
+        <ion-card>
+          <img alt="{{documentPelicula.data.Titulo}}" src="{{documentPelicula.data.Imagen}}" width="100%"/>
+          <ion-card-header>
+            <ion-card-title>{{ documentPelicula.data.Titulo }}</ion-card-title>
+            <ion-card-subtitle>{{ documentPelicula.data.Director }}</ion-card-subtitle>
+          </ion-card-header>        
+          <ion-card-content>            
+            <ion-card-title>Género: {{ documentPelicula.data.Genero }}</ion-card-title>
+            <ion-card-title>Fecha de estreno: {{ documentPelicula.data.FechaDeEstreno }}</ion-card-title>
+            <ion-card-title>
+              <h2 *ngIf="(documentPelicula.data.Vista)">Vista: Si</h2> <!-- No sé si funciona bien -->
+              <h2 *ngIf="(!documentPelicula.data.Vista)">Vista: No</h2> <!-- No sé si funciona bien -->
+          </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-fab-button (click)="selecPelicula(false)">+</ion-fab-button>
 </ion-content>
