@@ -68,10 +68,11 @@ export class DetallePage implements OnInit {
     this.router.navigate(['/home']);
   }
   clickBotonBorrar() {
-
+    this.deleteFile(this.document.data.Imagen);
     this.firestoreService.borrar("peliculas", this.id).then(() => {
       this.clickBotonVolver();
     })
+    
   }
 
   clickBotonModificar() {
@@ -101,6 +102,7 @@ export class DetallePage implements OnInit {
 
     if(role=="confirm") {
       this.clickBotonBorrar();
+
     }
     
   }

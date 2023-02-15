@@ -7,7 +7,7 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <img alt="{{document.data.Titulo}}" src="{{document.data.Imagen}}" width="300" height="400"/>
+      <img *ngIf="(!this.nueva)" alt="{{document.data.Titulo}}" src="{{document.data.Imagen}}" width="300" height="400"/>
     </ion-card-header>
     <ion-card-content>
       <ion-card-title>Título:<ion-input [(ngModel)]="document.data.Titulo"></ion-input></ion-card-title>
