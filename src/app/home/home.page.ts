@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Pelicula } from '../pelicula';
 import { Router } from '@angular/router';
-
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -20,7 +20,7 @@ export class HomePage {
   idPeliculaSelec: string;
 
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, private router: Router, private callNumber: CallNumber) {
 
     this.peliculaEditando = {} as Pelicula;
     this.obtenerListaPeliculas();
@@ -69,6 +69,14 @@ export class HomePage {
       this.router.navigate(['/detalle', this.idPeliculaSelec]);
     }
     
+  }
+
+  llamar(){
+
+      this.callNumber.callNumber("630504353", true)
+      .then(res => console.log('Llamada realizada', res))
+      .catch(err => console.log('Error en realizar la llamada', err));
+
   }
 
 

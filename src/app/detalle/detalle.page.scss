@@ -1,6 +1,7 @@
 
 ion-card{
     --background: #2736DB;
+    
 }
 ion-title,h1{
 font-weight: bold;
@@ -30,4 +31,23 @@ ion-toolbar,ion-title,ion-header{
 
 ion-button{
 --background: #1F69F2;
+}
+
+@media (orientation: landscape) {
+    ion-card{
+        display: flex;
+        gap: 30px;
+        
+    }
+    ion-card-content{
+        padding-top: 10px;
+    }
+
+    ion-input{
+        width: 400px;
+    }
+}
+
+#icons{
+    color: #1F69F2;
 }

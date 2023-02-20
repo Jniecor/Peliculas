@@ -23,5 +23,21 @@
   <ion-button (click)="clickBotonInsertar()" *ngIf="(this.nueva)">Insertar</ion-button>
   <ion-button (click)="clickBotonModificar()" *ngIf="(!this.nueva)">Modificar</ion-button>
   <ion-button (click)="uploadImagePicker()" >Examinar</ion-button>
+  <ion-button (click)="compartir()" *ngIf="(!this.nueva)">Compartir</ion-button>
   <ion-button (click)="presentAlert()" *ngIf="(!this.nueva)">Borrar</ion-button>
 </ion-content>
+
+<ion-toolbar>
+  <ion-tabs id="tab">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home" id="icons"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="info">
+        <ion-icon name="information-circle" id="icons"></ion-icon>
+        <ion-label>Sobre la App</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

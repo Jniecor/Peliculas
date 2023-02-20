@@ -26,12 +26,20 @@
   text-decoration: none;
 }
 
-ion-fab-button{ 
+.añadir{ 
 
   font-size: 300%;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 20px;
+  --background: #2736DB;
+}
+.llamada{ 
+
+  font-size: 300%;
+  position: fixed;
+  bottom: 60px;
+  right: 80px;
   --background: #2736DB;
 }
 
@@ -51,4 +59,8 @@ ion-title,h1:nth-child(0),h1:nth-child(1){
 
 h1{
   padding-left: 1%;
+}
+
+#icons{
+  color: #1F69F2;
 }

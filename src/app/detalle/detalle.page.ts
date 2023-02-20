@@ -4,6 +4,7 @@ import { FirestoreService } from '../firestore.service';
 import { Pelicula } from '../pelicula';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-detalle',
@@ -23,7 +24,7 @@ export class DetallePage implements OnInit {
   roleMessage: boolean;
   constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService,
      private router: Router, private alertController: AlertController, private loadingController: LoadingController,
-     private toastController: ToastController, private imagePicker: ImagePicker) { }
+     private toastController: ToastController, private imagePicker: ImagePicker, private socialSharing: SocialSharing) { }
 
   ngOnInit() {
 
@@ -176,6 +177,10 @@ export class DetallePage implements OnInit {
         console.log(err)
 
       });
+  }
+
+  compartir(){
+    this.socialSharing.share()
   }
 
 }
